@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Manaye Bishaw</title>
+    <link rel="stylesheet" href="contact.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="animated">
+      <a href="#" class="logo">
+        <img rel="stylesheet" src="images/man.jpg" width="40" height="40"
+      /></a>
+      <nav class="navbar">
+        <a href="Home.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </header>
+    <div class="contact-box animated">
+      <h1>Contact Me</h1>
+      <div class="contact-info">
+        <h2>Name: Manaye Bishaw</h2>
+        <h3>
+          Email:
+          <a href="mailto:manayebishaw@gmail.com">manayebishaw@gmail.com</a>
+        </h3>
+        <h3>Phone: <a href="tel:+251920845514">+251920845514</a></h3>
+        <h3>Telegram: <a href="https://t.me/Manabishaw">@manayebishaw</a></h3>
+        <h3>Address: Gondar, Ethiopia</h3>
+      </div>
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="address" placeholder="Your Address" required />
+        <input type="number" name="age" placeholder="Your Age" required />
+        <input type="tel" name="phone" placeholder="Your Phone" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+    <script>
+      // Form submission handling
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", function (e) {
+          // Client-side validation
+          const name = this.querySelector('input[name="name"]').value.trim();
+          const email = this.querySelector('input[name="email"]').value.trim();
+          const phone = this.querySelector('input[name="phone"]').value.trim();
+          const message = this.querySelector(
+            'textarea[name="message"]'
+          ).value.trim();
+          if (!name || !email || !phone || !message) {
+            e.preventDefault();
+            alert("Please fill in all required fields.");
+            return;
+          }
+          // Show confirmation alert
+          alert("Sending your message...");
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".contact-form");
+
+        // Function to create or update error message elements
+        function displayError(inputElement, message) {
+          let errorDiv = inputElement.nextElementSibling;
+          if (!errorDiv || !errorDiv.classList.contains("error")) {
+            errorDiv = document.createElement("div");
+            errorDiv.className = "error";
+            inputElement.parentNode.insertBefore(
+              errorDiv,
+              inputElement.nextSibling
+            );
+          }
+          errorDiv.textContent = message;
+        }
+
+        // Function to clear all error messages
+        function clearErrors() {
+          const errorElements = form.querySelectorAll(".error");
+          errorElements.forEach((element) => {
+            element.textContent = "";
+          });
+        }
+
+        // Add submit event listener
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearErrors();
+
+          // Get form field values
+          const name = form.querySelector('input[name="name"]').value.trim();
+          const email = form.querySelector('input[name="email"]').value.trim();
+          const address = form
+            .querySelector('input[name="address"]')
+            .value.trim();
+          const age = form.querySelector('input[name="age"]').value.trim();
+          const phone = form.querySelector('input[name="phone"]').value.trim();
+          const message = form
+            .querySelector('textarea[name="message"]')
+            .value.trim();
+
+          let isValid = true;
+
+          // Validate name
+          if (!name) {
+            displayError(
+              form.querySelector('input[name="name"]'),
+              "Name is required."
+            );
+            isValid = false;
+          } else if (name.length < 2) {
+            displayError(
+              form.querySelector('input[name="name"]'),
+              "Name must be at least 2 characters long."
+            );
+            isValid = false;
+          }
+
+          // Validate email
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!email) {
+            displayError(
+              form.querySelector('input[name="email"]'),
+              "Email is required."
+            );
+            isValid = false;
+          } else if (!emailPattern.test(email)) {
+            displayError(
+              form.querySelector('input[name="email"]'),
+              "Please enter a valid email address."
+            );
+            isValid = false;
+          }
+
+          // Validate address
+          if (!address) {
+            displayError(
+              form.querySelector('input[name="address"]'),
+              "Address is required."
+            );
+            isValid = false;
+          } else if (address.length < 5) {
+            displayError(
+              form.querySelector('input[name="address"]'),
+              "Address must be at least 5 characters long."
+            );
+            isValid = false;
+          }
+
+          // Validate age
+          if (!age) {
+            displayError(
+              form.querySelector('input[name="age"]'),
+              "Age is required."
+            );
+            isValid = false;
+          } else if (isNaN(age) || age < 1 || age > 120) {
+            displayError(
+              form.querySelector('input[name="age"]'),
+              "Please enter a valid age (1-120)."
+            );
+            isValid = false;
+          }
+
+          // Validate phone
+          const phonePattern = /^\+?[\d\s-]{7,15}$/;
+          if (!phone) {
+            displayError(
+              form.querySelector('input[name="phone"]'),
+              "Phone number is required."
+            );
+            isValid = false;
+          } else if (!phonePattern.test(phone)) {
+            displayError(
+              form.querySelector('input[name="phone"]'),
+              "Please enter a valid phone number."
+            );
+            isValid = false;
+          }
+
+          // Validate message
+          if (!message) {
+            displayError(
+              form.querySelector('textarea[name="message"]'),
+              "Message is required."
+            );
+            isValid = false;
+          } else if (message.length < 10) {
+            displayError(
+              form.querySelector('textarea[name="message"]'),
+              "Message must be at least 10 characters long."
+            );
+            isValid = false;
+          }
+
+          // If all validations pass
+          if (isValid) {
+            console.log("Form submitted:", {
+              name,
+              email,
+              address,
+              age,
+              phone,
+              message,
+            });
+            alert("Message sent successfully!");
+            form.reset();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

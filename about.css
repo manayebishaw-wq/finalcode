@@ -1,0 +1,135 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.navbar {
+  background: #0b132b;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  gap: 30px;
+}
+
+.navbar a {
+  color: #f8f9fa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: #00bcd4;
+}
+
+
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 60px 10%;
+  background: #0b132b;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.about-content h1 {
+  font-size: 2.5rem;
+  color:#f0f4f8;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: #449;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.about-image img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.skills-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 60px 10%;
+  background: #444;
+}
+
+.skills-section.reverse {
+  background:darkslategrey;
+  flex-direction: row-reverse;
+}
+
+.skills-section .text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.skills-section p {
+  color: #0b132b;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.image-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.image-group img {
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.image-group img:hover {
+  transform: scale(1.05);
+}
+
+
+footer {
+  text-align: center;
+  background: #0b132b;
+  color: #fff;
+  padding: 15px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+  .about-section,
+  .skills-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    margin-top: 20px;
+  }
+}

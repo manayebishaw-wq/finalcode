@@ -1,0 +1,83 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "arial", sans-serif;
+}
+
+
+body {
+  height: 100vh;
+  background: url("images/service.jpg") no-repeat center/cover;
+  padding: 50px 5%;
+}
+.navbar {
+  display: flex;
+  background-color: none;
+  padding: 6px;
+  margin: 10px;
+  text-align: right;
+  border-radius: 50%;
+  justify-content: flex-end;
+  align-items: center;
+}
+.navbar a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 20px;
+  border-bottom: 2px solid transparent;
+}
+
+.service-box {
+ width: 90%;
+ padding: 10px;
+    margin: auto;
+
+}
+ .heading {
+ font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 34px;
+    color: black;
+
+  
+}
+.service-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+.service-card {
+  background:gray;
+  width: 30%;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(14, 1, 164, 0.8);
+  margin: 20px;
+  cursor: pointer;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  color: white;
+}
+.navbar a.active,
+.navbar a:hover {
+background: linear-gradient(45deg,#f07),#3cf;
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+  border-color: rgb(68, 143, 255);
+  background-color: grey;
+  border-radius: 5px;
+  padding: 5px;
+  transition: all 0.3s ease;
+}
+
+
+
